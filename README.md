@@ -30,7 +30,7 @@ To evaluate these tools, the following criteria were used:
 
 ## 3. Analysis of Automation Product Offerings
 
-### **1. Terraform **
+### **1. Terraform**
 - **Multi-Cloud Support:** Strong support for AWS, Azure, GCP, and other providers.
 - **IaC Capabilities:** Fully declarative using HCL.
 - **State Management:** Uses remote backends for state management.
