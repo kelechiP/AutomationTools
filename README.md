@@ -8,13 +8,14 @@ Repository describes different automation tools used in DevOps
 
 The following automation tools were identified for analysis based on their multi-cloud compatibility and capabilities:
 
-1. **Terraform Enterprise** (by HashiCorp)
-2. **Terragrunt** (wrapper for Terraform)
-3. **Pulumi**
-4. **Crossplane**
-5. **Cloudify**
-6. **Ansible with Cloud Modules**
-7. **Spacelift**
+1. **Terraform** (by HashiCorp)
+2. **Terraform Enterprise** (by HashiCorp)
+3. **Terragrunt** (wrapper for Terraform)
+4. **Pulumi**
+5. **Crossplane**
+6. **Cloudify**
+7. **Ansible with Cloud Modules**
+8. **Spacelift**
 
 ## 2. Analysis Criteria
 To evaluate these tools, the following criteria were used:
@@ -29,7 +30,16 @@ To evaluate these tools, the following criteria were used:
 
 ## 3. Analysis of Automation Product Offerings
 
-### **1. Terraform Enterprise**
+### **1. Terraform **
+- **Multi-Cloud Support:** Strong support for AWS, Azure, GCP, and other providers.
+- **IaC Capabilities:** Fully declarative using HCL.
+- **State Management:** Uses remote backends for state management.
+- **Collaboration & Governance:**  Basic collaboration, lacks built-in RBAC.
+- **Ease of Use:** Moderate learning curve.
+- **Extensibility:** Supports plugins and modules.
+- **Cost & Licensing:** Open-source and free.
+
+### **2. Terraform Enterprise**
 - **Multi-Cloud Support:** Strong support for AWS, Azure, GCP, and other providers.
 - **IaC Capabilities:** Fully declarative using HCL.
 - **State Management:** Centralized state management with robust locking.
@@ -38,7 +48,7 @@ To evaluate these tools, the following criteria were used:
 - **Extensibility:** Supports plugins and modules.
 - **Cost & Licensing:** Enterprise version is expensive but offers strong governance features.
 
-### **2. Terragrunt**
+### **3. Terragrunt**
 - **Multi-Cloud Support:** Uses Terraform providers, ensuring compatibility with major clouds.
 - **IaC Capabilities:** Simplifies Terraform configurations.
 - **State Management:** Enhances Terraform's remote state management.
@@ -47,7 +57,7 @@ To evaluate these tools, the following criteria were used:
 - **Extensibility:** Works with Terraform modules.
 - **Cost & Licensing:** Open-source and free.
 
-### **3. Pulumi**
+### **4. Pulumi**
 - **Multi-Cloud Support:** Strong support for AWS, Azure, GCP, and Kubernetes.
 - **IaC Capabilities:** Uses programming languages (Python, TypeScript, Go, etc.).
 - **State Management:** Managed by Pulumi Cloud or self-hosted.
@@ -56,7 +66,7 @@ To evaluate these tools, the following criteria were used:
 - **Extensibility:** Integrates well with cloud-native tools.
 - **Cost & Licensing:** Free and paid plans available.
 
-### **4. Crossplane**
+### **5. Crossplane**
 - **Multi-Cloud Support:** Kubernetes-native approach to multi-cloud automation.
 - **IaC Capabilities:** Declarative YAML-based configurations.
 - **State Management:** Managed via Kubernetes control plane.
@@ -65,7 +75,7 @@ To evaluate these tools, the following criteria were used:
 - **Extensibility:** Can be extended via controllers.
 - **Cost & Licensing:** Open-source.
 
-### **5. Cloudify**
+### **6. Cloudify**
 - **Multi-Cloud Support:** Focuses on service orchestration across clouds.
 - **IaC Capabilities:** TOSCA-based modeling.
 - **State Management:** Centralized state management.
@@ -74,7 +84,7 @@ To evaluate these tools, the following criteria were used:
 - **Extensibility:** Supports plugins.
 - **Cost & Licensing:** Open-source with enterprise options.
 
-### **6. Ansible with Cloud Modules**
+### **7. Ansible with Cloud Modules**
 - **Multi-Cloud Support:** Supports AWS, Azure, GCP through modules.
 - **IaC Capabilities:** Procedural automation.
 - **State Management:** No state tracking.
@@ -83,7 +93,7 @@ To evaluate these tools, the following criteria were used:
 - **Extensibility:** Many cloud-specific modules.
 - **Cost & Licensing:** Open-source.
 
-### **7. Spacelift**
+### **8. Spacelift**
 - **Multi-Cloud Support:** Works with Terraform, Pulumi, and other IaC tools.
 - **IaC Capabilities:** Focuses on infrastructure automation workflows.
 - **State Management:** Manages Terraform state securely.
@@ -96,6 +106,7 @@ To evaluate these tools, the following criteria were used:
 
 | Tool          | Multi-Cloud | IaC Type | State Management | Governance | Ease of Use | Extensibility | Cost |
 |--------------|------------|----------|------------------|------------|------------|---------------|------|
+| Terraform | ✅ | Declarative (HCL) | ✅ | ❌ | Moderate | ✅ | Free |
 | Terraform Enterprise | ✅ | Declarative (HCL) | ✅ | ✅ | Moderate | ✅ | Expensive |
 | Terragrunt  | ✅ | Declarative (HCL) | ✅ | ❌ | Easy | ✅ | Free |
 | Pulumi      | ✅ | Declarative (Code) | ✅ | ✅ | Moderate | ✅ | Paid & Free |
@@ -125,7 +136,7 @@ To evaluate these tools, the following criteria were used:
 **Spacelift** – Great for managing Terraform, Pulumi, and other IaC tools with security and automation in mind.
 
 ### **Overall Recommendation:**
-For most organizations, **Terraform Enterprise** or **Pulumi** would be the best choice for structured multi-cloud automation, while **Terragrunt** remains an excellent lightweight alternative for Terraform users. If Kubernetes-native automation is a priority, **Crossplane** is worth considering.
+Terraform is a widely used tool for infrastructure automation. For most organizations, **Terraform Enterprise** or **Pulumi** would be the best choice for structured multi-cloud automation, while **Terragrunt** remains an excellent lightweight alternative for Terraform users. If Kubernetes-native automation is a priority, **Crossplane** is worth considering.
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
