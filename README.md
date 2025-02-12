@@ -17,6 +17,13 @@ The following automation tools were identified for analysis based on their multi
 7. **Ansible with Cloud Modules**
 8. **Spacelift**
 
+Terraform: A mature, widely adopted tool with excellent multi-cloud support. It has a moderate learning curve and strong community support. However, collaboration features are limited in the open-source version.
+Terragrunt: Built on Terraform, it simplifies complex deployments but inherits Terraform’s limitations. Best for organizations already using Terraform.
+Terraform Enterprise: Adds advanced collaboration, governance, and state management features. Ideal for enterprises but comes at a higher cost.
+Pulumi: Offers a developer-friendly experience with support for multiple programming languages. Strong multi-cloud support and advanced collaboration features.
+Crossplane: Kubernetes-native tool with excellent multi-cloud support. Ideal for organizations heavily invested in Kubernetes.
+Cloudify: A robust tool with advanced collaboration features but comes with a higher cost and moderate extensibility.
+
 ## 2. Analysis Criteria
 To evaluate these tools, the following criteria were used:
 
