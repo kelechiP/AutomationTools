@@ -643,12 +643,11 @@ Documentation is provided for Terraform Enterprise setup, usage, and policy enfo
 Team members are trained on using Terraform Enterprise for IaC workflows.
 
 
-Terraform AWS EC2 Provisioning Repository
+## Terraform AWS EC2 Provisioning Repository
 Overview
 This repository contains Terraform configurations to provision EC2 instances in AWS. The infrastructure is designed for deployment via Jenkins pipeline with environment-specific configurations stored under environments/.
 
-Repository Structure
-Copy
+### Repository Structure
 .
 ├── main.tf                  # Main Terraform configuration
 ├── variables.tf             # Variable declarations
@@ -659,7 +658,7 @@ Copy
     └── dev-UK/              # UK development environment
         ├── terraform.tfvars # Environment-specific variables
         └── backend.conf    # Backend configuration
-Getting Started
+### Getting Started
 Prerequisites
 Terraform (>= 1.0.0)
 
@@ -667,7 +666,7 @@ AWS account with appropriate permissions
 
 Jenkins access with pipeline configured
 
-Deployment via Jenkins
+### Deployment via Jenkins
 The Jenkins pipeline is pre-configured to:
 
 Checkout this repository
@@ -703,15 +702,13 @@ To permanently change the AMI for an environment:
 
 Edit the corresponding terraform.tfvars file:
 
-bash
-Copy
+```bash
 vim environments/dev-UK/terraform.tfvars
-Add or update the ami_id variable:
-
-hcl
-Copy
+```bash
+```json
 ami_id = "your-new-ami-id"
 Commit and push the changes
+```json
 
 Method 3: Default Configuration
 To change the default AMI for all environments:
