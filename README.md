@@ -641,3 +641,139 @@ Governance policies (e.g., cost control, security compliance) are enforced using
 Documentation is provided for Terraform Enterprise setup, usage, and policy enforcement.
 
 Team members are trained on using Terraform Enterprise for IaC workflows.
+
+
+Terraform AWS EC2 Provisioning Repository
+Overview
+This repository contains Terraform configurations to provision EC2 instances in AWS. The infrastructure is designed for deployment via Jenkins pipeline with environment-specific configurations stored under environments/.
+
+Repository Structure
+Copy
+.
+├── main.tf                  # Main Terraform configuration
+├── variables.tf             # Variable declarations
+├── tfsecExcludedRules.txt   # TFSec exclusion rules
+├── jenkinsfile              # Jenkins pipeline configuration
+├── README.md                # This documentation
+└── environments/
+    └── dev-UK/              # UK development environment
+        ├── terraform.tfvars # Environment-specific variables
+        └── backend.conf    # Backend configuration
+Getting Started
+Prerequisites
+Terraform (>= 1.0.0)
+
+AWS account with appropriate permissions
+
+Jenkins access with pipeline configured
+
+Deployment via Jenkins
+The Jenkins pipeline is pre-configured to:
+
+Checkout this repository
+
+Initialize Terraform with the appropriate backend
+
+Plan or apply changes based on parameters
+
+Deploy to the dev-UK environment by default
+
+To trigger a deployment:
+
+Navigate to the Jenkins job
+
+Select "Build with Parameters"
+
+Adjust parameters as needed (see below)
+
+Click "Build"
+
+Customizing the AMI ID
+Method 1: Jenkins Pipeline Parameters
+When triggering the Jenkins job:
+
+Locate the AMI_ID parameter in the build form
+
+Enter your desired AMI ID (e.g., ami-0123456789abcdef0)
+
+Leave blank to use the default AMI from variables.tf
+
+Method 2: Environment Configuration
+To permanently change the AMI for an environment:
+
+Edit the corresponding terraform.tfvars file:
+
+bash
+Copy
+vim environments/dev-UK/terraform.tfvars
+Add or update the ami_id variable:
+
+hcl
+Copy
+ami_id = "your-new-ami-id"
+Commit and push the changes
+
+Method 3: Default Configuration
+To change the default AMI for all environments:
+
+Edit variables.tf:
+
+bash
+Copy
+vim variables.tf
+Update the default value in the ami_id variable:
+
+hcl
+Copy
+variable "ami_id" {
+  description = "The AMI ID to use for the EC2 instance"
+  type        = string
+  default     = "ami-your-default-ami-id" # Update this line
+}
+Important Notes
+The Jenkins pipeline uses the following precedence for AMI selection:
+
+Jenkins parameter (highest priority)
+
+Environment-specific terraform.tfvars
+
+Default value from variables.tf
+
+After changing the AMI:
+
+The pipeline will automatically detect the change
+
+A new instance will be created with the new AMI
+
+The old instance will be terminated (if replacing)
+
+To verify AMI changes:
+
+Check the "Plan" stage output in Jenkins
+
+Review the "aws_instance.ami" attribute in the output
+
+Additional Configuration
+Other customizable parameters available through Jenkins or terraform.tfvars:
+
+instance_type (default: t3.medium)
+
+instance_name (default: terraform-ec2)
+
+environment (default: dev-UK)
+
+Support
+For assistance:
+
+Check pipeline console output for errors
+
+Review Terraform plan output
+
+Contact the Infrastructure team for critical issues
+
+Maintenance
+To destroy infrastructure:
+
+Run Jenkins job with TF_ACTION=destroy parameter
+
+Confirm destruction in the pipeline output
